@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,14 +36,15 @@ public class StudentController {
 	public String delete(@RequestParam int rollNo) {
 		return service.delete(rollNo);
 	}
+	
 	@PostMapping("/addAll")
 	public String addAll(@RequestBody List<Student> students) {
 		return service.addAll(students);
 	}
+	
 	@GetMapping("/use-filter")
 	public List<Student> getList(@RequestParam List<String> sName,
-								 @RequestParam List<Integer> rollNo
-								 ){
+								 @RequestParam(required=false) List<Integer> rollNo){
 		return service.getList(sName, rollNo);
 	}
 }
