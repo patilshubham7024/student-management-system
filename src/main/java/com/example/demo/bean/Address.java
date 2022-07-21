@@ -15,7 +15,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Address implements Serializable{
+public class Address implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int houseNo;
